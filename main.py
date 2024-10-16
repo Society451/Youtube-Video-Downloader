@@ -9,7 +9,6 @@ def download_video():
     output_path = path_entry.get()
     custom_name = name_entry.get()
     write_subs = write_subs_var.get()
-    embed_subs = embed_subs_var.get()
     quality = quality_var.get()
     merge_format = merge_format_var.get()
     video_format = video_format_var.get()
@@ -30,8 +29,6 @@ def download_video():
         
         if write_subs:
             ydl_opts['writesubtitles'] = True
-        if embed_subs:
-            ydl_opts['embedsubtitles'] = True
         if quality:
             ydl_opts['format'] = quality
         if merge_format:
@@ -82,11 +79,6 @@ name_entry.grid(row=2, column=1, padx=10, pady=10)
 write_subs_var = tk.BooleanVar()
 write_subs_check = tk.Checkbutton(root, text="Download Subtitles", variable=write_subs_var)
 write_subs_check.grid(row=3, column=0, padx=10, pady=10)
-
-# Embed subtitles checkbox
-embed_subs_var = tk.BooleanVar()
-embed_subs_check = tk.Checkbutton(root, text="Embed Subtitles", variable=embed_subs_var)
-embed_subs_check.grid(row=3, column=1, padx=10, pady=10)
 
 # Quality selection
 tk.Label(root, text="Quality:").grid(row=4, column=0, padx=10, pady=10)
